@@ -23,8 +23,7 @@
 🔹 Java SE 21,\
 🔹 Spring Boot Framework 3.3.0,\
 🔹 Spring Data JPA,\
-🔹 Hibernate Framework 6.1.4,\
-🔹 Spring Security 6.3.1,
+🔹 Hibernate Framework 6.1.4,
 
 **Database**\
 🔹 MySQL 8.0.36,
@@ -40,9 +39,10 @@
 🔹 Model - View - Controller (MVC),
 
 ## Features
-🔹 Donations management ✅ / ❌,\
-🔹 Donors management ✅ / ❌,\
-🔹 User management ✅ / ❌,\
+🔹 Application dashboard ✅,\
+🔹 Donations management ✅,\
+🔹 Donors management ❌,\
+🔹 User management ❌,
 
 
 ## Setup
@@ -50,7 +50,7 @@
 🔹 Prepare database server and create _charity-donation_ schema (execute dbcreate.sql).\
 🔹 Update detabase connection details in _application.properties_.\
 🔹 Compile sources with Maven.\
-🔹 Execute application _jar_ file.\
+🔹 Execute application _jar_ file.
 
 Initially application contains user _admin_ with password _password_. It is recommended to create new administration user and delete the _admin_ user during the first use of the application.
 
@@ -58,6 +58,7 @@ Initially application contains user _admin_ with password _password_. It is reco
 ## Development Status
 🔹 **The Minimum Viable Product** is in progress.\
 🔹 Further features **_to be developed_**:
+- security - registering & logging users, administering users using Spring Security framework,
 - REST API,
 - UX.
 
