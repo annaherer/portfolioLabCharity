@@ -58,7 +58,7 @@ Initially application contains user _admin_ with password _password_. It is reco
 ## Development Status
 🔹 **The Minimum Viable Product** is in progress.\
 🔹 Further features **_to be developed_**:
-- security - registering & logging users, administering users using Spring Security framework,
+- security - registering, logging & administering users using Spring Security framework,
 - REST API,
 - UX.
 
