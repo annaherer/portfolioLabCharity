@@ -56,7 +56,8 @@ public class DonationController {
     @PostMapping("/donation")
     public String processDonationForm(@Valid @ModelAttribute Donation donation, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            return "index";
+            model.addAttribute("fieldErrors", bindingResult.getFieldErrors());
+            return "form";
         }
         donationRepository.save(donation);
         return "redirect:/formConfirmation";

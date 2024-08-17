@@ -17,6 +17,7 @@ public class Institution {
     private Integer id;
     @NotBlank
     private String name;
+    @NotBlank
     private String description;
     @NotNull
     private Integer sequence;

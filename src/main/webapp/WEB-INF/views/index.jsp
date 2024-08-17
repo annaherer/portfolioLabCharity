@@ -6,13 +6,13 @@
     <div class="slogan--item">
         <h1>
             Start helping!<br/>
-            Give away things into trusted hands
+            Give things into trusted hands
         </h1>
     </div>
 </div>
 </header>
 
-<section class="stats">
+<section id="stats" class="stats">
     <div class="container container--85">
         <div class="stats--item">
             <em>${all_bags}</em>
@@ -30,7 +30,7 @@
     </div>
 </section>
 
-<section class="steps">
+<section id="steps" class="steps">
     <h2>4 steps are sufficient to change lives!</h2>
 
     <div class="steps--container">
@@ -59,7 +59,7 @@
     <a href="#" class="btn btn--large">Register</a>
 </section>
 
-<section class="about-us">
+<section id="about-us" class="about-us">
     <div class="about-us--text">
         <h2>About us</h2>
         <p>Helping is our passion and we believe that together we can make our world a bit better!</p>
@@ -69,7 +69,7 @@
     </div>
 </section>
 
-<section class="help">
+<section id="help" class="help">
     <h2>Who we support?</h2>
 
     <!-- SLIDE 1 -->

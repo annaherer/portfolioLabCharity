@@ -3,8 +3,7 @@
 <%@ include file="header.jsp" %>
 
 <div class="slogan container container--90">
-    <h2>Thank you for submitting the message.</h2>
-    <h2>We will contact you as soon as possible.</h2>
+    <h2>Thank you for submitting your message. We will contact you as soon as possible.</h2>
 </div>
 </header>
 

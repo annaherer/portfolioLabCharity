@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateForm() {
             this.$step.innerText = this.currentStep;
 
-            // TODO: Validation
+            // Validation
 
             this.slides.forEach(slide => {
                 slide.classList.remove("active");
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
             this.$stepInstructions[0].parentElement.parentElement.hidden = this.currentStep >= 5;
             this.$step.parentElement.hidden = this.currentStep >= 5;
 
-            // TODO: get data from inputs and show them in summary
+            // Get data from inputs and show them in summary
             if (this.currentStep === 5) {
                 console.log(form.querySelector("#categories1").checked);
                 console.log(form.querySelector("#categories1").parentElement.querySelector(".description").innerText);
@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     else
                         categories = " (categories to be confirmed)"
 
-                    if (bags === 1)
+                    if (bags == 1)
                         categories = "1 bag" + categories;
                     else
                         categories = bags + " bags" + categories;

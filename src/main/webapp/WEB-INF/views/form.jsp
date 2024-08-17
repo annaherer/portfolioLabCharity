@@ -4,7 +4,7 @@
 
 <div class="slogan container container--90">
     <div class="slogan--item">
-        <h1>Give away things you no longer want<br/>
+        <h1>Donate things you no longer want to<br/>
             <span class="uppercase">those in need</span>
         </h1>
 
@@ -12,16 +12,16 @@
             <div class="slogan--steps-title">Just 4 simple steps:</div>
             <ul class="slogan--steps-boxes">
                 <li>
-                    <div><em>1</em><span>Chose things</span></div>
+                    <div><em>1</em><span>Choose items</span></div>
                 </li>
                 <li>
-                    <div><em>2</em><span>Pack them in bags</span></div>
+                    <div><em>2</em><span>Pack items into bags</span></div>
                 </li>
                 <li>
-                    <div><em>3</em><span>Choose a foundation</span></div>
+                    <div><em>3</em><span>Choose preferred foundation</span></div>
                 </li>
                 <li>
-                    <div><em>4</em><span>Order a courier</span></div>
+                    <div><em>4</em><span>Book pick up</span></div>
                 </li>
             </ul>
         </div>
@@ -34,17 +34,16 @@
         <div class="form--steps-container">
             <h3>Important!</h3>
             <p data-step="1" class="active">
-                Complete the details about your 'things'.
-                Thanks to this we will know who is best to pass it on to.
+                Select category / categories of items you donate.
             </p>
             <p data-step="2">
-                Pack your 'things' in bags (one bag per one donation).
+                Pack items into bags.
             </p>
             <p data-step="3">
-                Choose a foundation or foundations that you want to donate to.
+                Choose preferred foundation.
             </p>
             <p data-step="4">
-                Provide the address and date of collection of the items.</p>
+                Book pick up.</p>
         </div>
     </div>
 
@@ -54,7 +53,7 @@
         <!-- STEP 1: class .active is switching steps -->
         <form:form action="/donation" method="post" modelAttribute="donation">
             <div data-step="1" class="active">
-                <h3>Zaznacz, co chcesz oddać:</h3>
+                <h3>Select what you want to donate:</h3>
 
                 <c:forEach var="cat" items="${categories}">
 
@@ -71,6 +70,10 @@
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn next-step">Next</button>
                 </div>
+                <c:forEach var="fieldError" items="${fieldErrors}">
+                    <br><a class="error-message">${fieldError.defaultMessage}</a>
+                </c:forEach>
+
             </div>
 
             <!-- STEP 2 -->
@@ -80,7 +83,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Number of 60 L bags:
-                        <form:input path="quantity" type="number" step="1" min="1" id="form-bags"/>
+                        <form:input path="quantity" type="number" step="1" id="form-bags"/>
                     </label>
                 </div>
 
@@ -93,7 +96,7 @@
 
             <!-- STEP 4 -->
             <div data-step="3">
-                <h3>Select the organization you want to help:</h3>
+                <h3>Select the institution you want to donate to:</h3>
 
                 <c:forEach var="inst" items="${institutions}">
                     <div class="form-group form-group--checkbox">
@@ -116,7 +119,7 @@
 
             <!-- STEP 5 -->
             <div data-step="4">
-                <h3>Provide the address and date of receipt of the item by the courier:</h3>
+                <h3>Provide the address and the pick up date by the courier:</h3>
 
                 <div class="form-section form-section--columns">
                     <div class="form-section--column">
