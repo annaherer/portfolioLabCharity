@@ -1,8 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -15,17 +11,16 @@
 <body>
 <header class="header--main-page">
     <nav class="container container--70">
-        <%@include file="top-actions-panel.jsp" %>
         <ul class="nav--actions">
-            <li><a href="" class="btn btn--small btn--without-border">Log in</a></li>
+            <li><a href="#" class="btn btn--small btn--without-border">Log in</a></li>
             <li><a href="#" class="btn btn--small btn--highlighted">Sign in</a></li>
         </ul>
         <ul>
-            <li><a href=""class="btn btn--without-border active">Start</a></li>
+            <li><a href="${pageContext.request.contextPath}/home" class="btn btn--without-border active">Start</a></li>
             <li><a href="#steps" class="btn btn--without-border">Why?</a></li>
             <li><a href="#about-us" class="btn btn--without-border">About us</a></li>
             <li><a href="#help" class="btn btn--without-border">Foundations</a></li>
-            <li><a href="<c:url value="/donation"/>" class="btn btn--without-border">Donate</a></li>
+            <c:if test="${uiContext eq 'Home'}"><li><a href="${pageContext.request.contextPath}/donation" class="btn btn--without-border">Donate</a></li></c:if>
             <li><a href="#contact" class="btn btn--without-border">Contact</a></li>
         </ul>
     </nav>

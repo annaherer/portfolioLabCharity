@@ -1,9 +1,7 @@
 package pl.coderslab.charity.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
@@ -12,18 +10,12 @@ import java.util.List;
 
 @Entity(name = "donation")
 @Data
-@NoArgsConstructor
 public class Donation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer quantity;
     @ManyToMany
-    @JoinTable(
-            name = "donation_category",
-            joinColumns = @JoinColumn(name = "donation_id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id"))
-    @JsonIgnore
     private List<Category> categories;
     @ManyToOne
     private Institution institution;
@@ -33,6 +25,8 @@ public class Donation {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private LocalDate pickUpDate;
+    @DateTimeFormat(pattern = "hh:mm")
+    @Temporal(TemporalType.TIME)
     private LocalTime pickUpTime;
     private String pickUpComment;
 }

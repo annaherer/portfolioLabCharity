@@ -1,6 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<%@include file="header.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ include file="header.jsp" %>
 
 <div class="slogan container container--90">
     <div class="slogan--item">
@@ -51,21 +51,16 @@
     <div class="form--steps-container">
         <div class="form--steps-counter">Step <span>1</span>/4</div>
 
-        <%--@elvariable id="donation" type="pl.coderslab.charity.entity.Donation"--%>
+        <!-- STEP 1: class .active is switching steps -->
         <form:form action="/donation" method="post" modelAttribute="donation">
-            <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz, co chcesz oddać:</h3>
 
-                <jsp:useBean id="categories" scope="request" type="java.util.List"/>
                 <c:forEach var="cat" items="${categories}">
 
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <form:checkbox
-                                    path="categories"
-                                    value="${cat}"
-                            />
+                            <form:checkbox class="category-checkbox" path="categories" value="${cat}"/>
                             <span class="checkbox"></span>
                             <span class="description">${cat.name}</span>
                         </label>
@@ -85,7 +80,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Number of 60 L bags:
-                        <form:input path="quantity" type="number" step="1" min="1" id="form-quantity"/>
+                        <form:input path="quantity" type="number" step="1" min="1" id="form-bags"/>
                     </label>
                 </div>
 
@@ -103,7 +98,7 @@
                 <c:forEach var="inst" items="${institutions}">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <form:radiobutton path="institution" value="${inst}"/>
+                            <form:radiobutton class="institution-radio" path="institution" value="${inst}"/>
                             <span class="checkbox radio"></span>
                             <span class="description">
                                 <div class="title">${inst.name}</div>
@@ -138,12 +133,6 @@
                             <label>
                                 Zip code <form:input path="zipCode" id="form-zip"/> </label>
                         </div>
-
-                            <%--                        <div class="form-group form-group--inline">--%>
-                            <%--                            <label>--%>
-                            <%--                                Numer telefonu <input type="phone" name="phone"/>--%>
-                            <%--                            </label>--%>
-                            <%--                        </div>--%>
                     </div>
 
                     <div class="form-section--column">
@@ -158,7 +147,7 @@
 
                         <div class="form-group form-group--inline">
                             <label> Remarks for courier <form:textarea path="pickUpComment" rows="5"
-                                                                     id="form-comment"/> </label>
+                                                                       id="form-comment"/> </label>
                         </div>
                     </div>
                 </div>
@@ -179,12 +168,12 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text" id="summary-cats"></span>
+                                <span class="summary--text" id="summary-bags">Categories and number of bags to be confirmed</span>
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
-                                <span class="summary--text" id="summary-inst">For: </span>
+                                <span class="summary--text"><a id="summary-institutions">Institution to be confirmed</a></span>
                             </li>
                         </ul>
                     </div>
@@ -193,19 +182,18 @@
                         <div class="form-section--column">
                             <h4>Pick up address:</h4>
                             <ul>
-                                <li id="summary-street"></li>
-                                <li id="summary-city"></li>
-                                <li id="summary-zip"></li>
-                                    <%--                                <li>telefon</li>--%>
+                                <li ${donation.street} id="summary-street">
+                                <li ${donation.city} id="summary-city">
+                                <li ${donation.zipCode} id="summary-zip"></li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Pick up date:</h4>
                             <ul>
-                                <li id="summary-date"></li>
-                                <li id="summary-time"></li>
-                                <li id="summary-comment"></li>
+                                <li ${donation.pickUpDate} id="summary-date">
+                                <li ${donation.pickUpTime} id="summary-time">
+                                <li ${donation.pickUpComment} id="summary-comment">
                             </ul>
                         </div>
                     </div>
