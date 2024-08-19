@@ -6,7 +6,7 @@
     <div class="slogan--item">
         <h1>
             Start helping!<br/>
-            Give things into trusted hands
+            Give things into trusted hands!
         </h1>
     </div>
 </div>
@@ -36,23 +36,23 @@
     <div class="steps--container">
         <div class="steps--item">
             <span class="icon icon--hands"></span>
-            <h3>Choose your unused items</h3>
+            <h3>Choose items you want to donate</h3>
             <p>clothing, toys, appliances, other</p>
         </div>
         <div class="steps--item">
             <span class="icon icon--arrow"></span>
             <h3>Pack your items</h3>
-            <p>into garbage bags</p>
+            <p>into bags</p>
         </div>
         <div class="steps--item">
             <span class="icon icon--glasses"></span>
             <h3>Decide who you want to help</h3>
-            <p>choose your trusted institution</p>
+            <p>choose your foundation</p>
         </div>
         <div class="steps--item">
             <span class="icon icon--courier"></span>
-            <h3>Order a courier</h3>
-            <p>he will arrive at the appointment time</p>
+            <h3>Book a pick up</h3>
+            <p>courier will arrive at the preferred appointment time</p>
         </div>
     </div>
 

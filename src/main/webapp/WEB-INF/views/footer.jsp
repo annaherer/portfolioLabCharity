@@ -5,11 +5,11 @@
         <form:form method="post" action="/submitMessage" modelAttribute="userMessage">
 
             <div class="form-group form-group--50"><form:input type="text" path="name" placeholder="First name"/>
-                <form:errors path="name"/></div>
+                <a class="error-message"><form:errors path="name"/></a></div>
             <div class="form-group form-group--50"><form:input type="text" path="surname" placeholder="Last name"/>
-                <form:errors path="surname"/></div>
+                <a class="error-message"><form:errors path="surname"/></a></div>
             <div class="form-group"><form:textarea rows="4" cols="50" path="messageText" placeholder="Message"/>
-                <form:errors path="messageText"/></div>
+                <br><a class="error-message"><form:errors path="messageText"/></a></div>
 
             <input class="btn" type="submit" value="Submit"/>
         </form:form>

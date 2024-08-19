@@ -164,10 +164,9 @@ document.addEventListener("DOMContentLoaded", function () {
             this.$stepInstructions[0].parentElement.parentElement.hidden = this.currentStep >= 5;
             this.$step.parentElement.hidden = this.currentStep >= 5;
 
-            // Get data from inputs and show them in summary
+            // Get categories & institutions data from user inputs and show them in the summary
+
             if (this.currentStep === 5) {
-                console.log(form.querySelector("#categories1").checked);
-                console.log(form.querySelector("#categories1").parentElement.querySelector(".description").innerText);
                 form.querySelector("#summary-street").innerText = form.querySelector("#form-street").value;
                 form.querySelector("#summary-city").innerText = form.querySelector("#form-city").value;
                 form.querySelector("#summary-zip").innerText = form.querySelector("#form-zip").value;
@@ -175,6 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 form.querySelector("#summary-time").innerText = form.querySelector("#form-time").value;
                 form.querySelector("#summary-comment").innerText = form.querySelector("#form-comment").value;
 
+                // Check combination of categories & bags to display summary
                 let categories = this.checkboxesToString(".category-checkbox", ".description");
                 const bags = form.querySelector("#form-bags").value;
                 if (bags > 0) {
@@ -187,28 +187,28 @@ document.addEventListener("DOMContentLoaded", function () {
                         categories = "1 bag" + categories;
                     else
                         categories = bags + " bags" + categories;
-                }
-                else
-                if (categories.length > 0)
+                } else if (categories.length > 0)
                     categories = categories + " (number of bags to be confirmed)";
                 else
                     categories = "Categories and number of bags to be confirmed"
 
                 form.querySelector("#summary-bags").innerText = categories;
 
+                // Institution chosen
                 const institutions = this.checkboxesToString(".institution-radio", ".title");
                 if (institutions.length > 0)
                     form.querySelector("#summary-institutions").innerText = institutions;
             }
         }
 
-        checkboxesToString(checkboxClass, descriptionId) {
+        // Method creating string from strings with checked checkboxes (categories or institutions)
+        checkboxesToString(checkboxClass, descriptionClass) {
             let result = "";
-            form.querySelectorAll(checkboxClass).forEach(opt => {
-                if (opt.checked) {
+            form.querySelectorAll(checkboxClass).forEach(option => {
+                if (option.checked) {
                     if (result.length > 0)
                         result = result + ", "
-                    result = result + opt.parentElement.querySelector(descriptionId).innerText;
+                    result = result + option.parentElement.querySelector(descriptionClass).innerText;
                 }
             });
             return result;

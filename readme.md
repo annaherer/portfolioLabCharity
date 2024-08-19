@@ -41,14 +41,13 @@
 ## Features
 🔹 Application dashboard ✅,\
 🔹 Donations management ✅,\
-🔹 Donors management ❌,\
 🔹 User management ❌,
 
 
 ## Setup
 🔹 Clone repository from GitHub.\
 🔹 Prepare database server and create _charity-donation_ schema (execute dbcreate.sql).\
-🔹 Update detabase connection details in _application.properties_.\
+🔹 Update database connection details in _application.properties_.\
 🔹 Compile sources with Maven.\
 🔹 Execute application _jar_ file.
 
@@ -56,11 +55,10 @@ Initially application contains user _admin_ with password _password_. It is reco
 
 
 ## Development Status
-🔹 **The Minimum Viable Product** is in progress.\
-🔹 Further features **_to be developed_**:
+🔹 **The Minimum Viable Product** is completed.\
+🔹 Features **_to be developed_**:
 - security - registering, logging & administering users using Spring Security framework,
-- REST API,
-- UX.
+- REST API.
 
 
 ## Contact

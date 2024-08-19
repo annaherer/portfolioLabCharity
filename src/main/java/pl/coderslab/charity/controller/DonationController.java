@@ -15,7 +15,6 @@ import pl.coderslab.charity.model.UserMessage;
 import pl.coderslab.charity.repository.CategoryRepository;
 import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
-
 import java.util.Comparator;
 import java.util.List;
 
@@ -27,15 +26,19 @@ public class DonationController {
     private final CategoryRepository categoryRepository;
     private final InstitutionRepository institutionRepository;
 
+    // User message object for user message form
     @ModelAttribute("userMessage")
     public UserMessage prepareUserMessage() { return new UserMessage(); }
 
+    // UI context for view - dashboard or form
     @ModelAttribute("uiContext")
     public String setUiContext() { return "Donation"; }
 
+    // Donation form object
     @ModelAttribute("donation")
     public Donation prepareDonation() { return new Donation(); }
 
+    // Categories list sorted by the sequence
     @ModelAttribute("categories")
     public List<Category> getCategories() {
         List<Category> categories = categoryRepository.findAll();
@@ -43,6 +46,7 @@ public class DonationController {
         return categories;
     }
 
+    // Institutions list sorted by the sequence
     @ModelAttribute("institutions")
     public List<Institution> getInstitutions() {
         List<Institution> institutions = institutionRepository.findAll();
@@ -50,9 +54,11 @@ public class DonationController {
         return institutions;
     }
 
+    // Display donations
     @GetMapping("/donation")
     public String displayDonationForm() { return "form"; }
 
+    // Save donation form to the database
     @PostMapping("/donation")
     public String processDonationForm(@Valid @ModelAttribute Donation donation, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
@@ -61,5 +67,11 @@ public class DonationController {
         }
         donationRepository.save(donation);
         return "redirect:/formConfirmation";
+    }
+
+    // Display confirmation form
+    @GetMapping("/formConfirmation")
+    public String formConfirmation() {
+        return "form-confirmation";
     }
 }

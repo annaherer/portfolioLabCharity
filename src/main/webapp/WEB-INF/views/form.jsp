@@ -18,7 +18,7 @@
                     <div><em>2</em><span>Pack items into bags</span></div>
                 </li>
                 <li>
-                    <div><em>3</em><span>Choose preferred foundation</span></div>
+                    <div><em>3</em><span>Choose foundation</span></div>
                 </li>
                 <li>
                     <div><em>4</em><span>Book pick up</span></div>
